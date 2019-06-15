@@ -15,8 +15,7 @@ def images_of_the_day(request):
         </html>
             '''
     return HttpResponse(html)
-
-
+    
 def convert_dates(dates):
 
     # Function that gets the weekday number for the date.
