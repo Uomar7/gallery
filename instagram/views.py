@@ -3,7 +3,7 @@ from django.http import HttpResponse,Http404
 import datetime as dt
 
 def welcome(request):
-    return HttpResponse('Welcome to Instagram')
+    return render(request, 'welcome.html')
 
 def images_of_the_day(request):
     date = dt.date.today()
@@ -15,7 +15,7 @@ def images_of_the_day(request):
         </html>
             '''
     return HttpResponse(html)
-    
+
 def convert_dates(dates):
 
     # Function that gets the weekday number for the date.
