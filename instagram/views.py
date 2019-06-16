@@ -20,14 +20,3 @@ def past_images(request,past_date):
         return redirect(images_of_the_day)
 
     return render(request, 'all-out/past-pics.html', {"date":date})
-# def convert_dates(dates):
-
-#     # Function that gets the weekday number for the date.
-#     day_number = dt.date.weekday(dates)
-
-#     days = ['Monday', 'Tuesday', 'Wednesday',
-#             'Thursday', 'Friday', 'Saturday', "Sunday"]
-
-#     # Returning the actual day of the week
-#     day = days[day_number]
-#     return day
