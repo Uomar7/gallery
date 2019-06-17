@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
-from .models import Image
+from .models import Image,category,Location
 
 def all_images(request):
     images = Image.all_images()
@@ -31,7 +31,14 @@ def past_images(request,past_date):
 def search_results(request):
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_images = Image.search_by_category(search_term) or search_by_location(search_term) or search_by_posted(search_term)
+        
+        term_cat = category.objects.all()
+        print(term_cat)
+        for i in term_cat:
+            if i.name == search_term:            
+                searched_images = Image.search_by_category(i.id)
+                print('hey----------')
+                print(searched_images)
         message = f"{search_term}"
 
         return render(request, 'all-out/search.html', {"message":message, "images":searched_images})

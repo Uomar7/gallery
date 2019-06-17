@@ -34,7 +34,7 @@ class Image(models.Model):
     location = models.ForeignKey(Location, default=1)
 
     def __str__(self):
-        return self.first_name
+        return self.posted_by
 
     class Meta:
         ordering = ['posted_by']
@@ -62,16 +62,6 @@ class Image(models.Model):
         return images
     
     @classmethod
-    def search_by_posted(cls,search_term):
-        images = cls.objects.filter(posted_by__icontains = search_term)
-        return images
-    
-    @classmethod
-    def search_by_location(cls, search_term):
-        images = cls.objects.filter(location__icontains=search_term)
-        return images
-    
-    @classmethod
     def search_by_category(cls,search_term):
-        images = cls.objects.filter(category__icontains=search_term)
+        images = cls.objects.filter(category=search_term)
         return images
