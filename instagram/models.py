@@ -5,6 +5,8 @@ class Image(models.Model):
     posted_by = models.CharField(max_length = 40)
     description = models.TextField()
     posted = models.DateTimeField(auto_now_add=True)
+    location = models.ForeignKey(Location)
+    category = models.ManyToManyField(category)
 
     def __str__(self):
         return self.first_name
@@ -33,6 +35,20 @@ class Image(models.Model):
     def days_images(cls,date):
         images = cls.objects.filter(posted__date=date)
         return images
+    
+    @classmethod
+    def search_by_posted(cls,search_term):
+        images = cls.objects.filter(posted_by__icontains = search_term)
+        return images
+    
+    @classmethod
+    def search_by_location(cls, search_term):
+        images = cls.objects.filter(location__icontains=search_term)
+        return images
+    
+    @classmethod
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(category__icontains=search_term)
 
 class category(models.Model):
     name = models.CharField(max_length = 30)
@@ -48,9 +64,7 @@ class category(models.Model):
 
 class Location(models.Model):
     location_name = models.CharField(max_length = 40)
-    image = models.ForeignKey(Image)
-    category = models.ManyToManyField(category)
-
+    
     def __str__(self):
         return self.location_name
 
