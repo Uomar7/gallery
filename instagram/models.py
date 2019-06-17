@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 class Image(models.Model):
     posted_by = models.CharField(max_length = 40)
@@ -16,6 +17,22 @@ class Image(models.Model):
     
     def delete_image(self):
         self.delete()
+    
+    @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
+
+    @classmethod
+    def todays_images(cls):
+        today = dt.datetime.today()
+        images = cls.objects.filter(posted__date=today)
+        return images
+
+    @classmethod
+    def days_images(cls,date):
+        images = cls.objects.filter(posted__date=date)
+        return images
 
 class category(models.Model):
     name = models.CharField(max_length = 30)
