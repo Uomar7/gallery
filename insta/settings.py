@@ -18,7 +18,6 @@ from decouple import config, Csv
 MODE=config("MODE", default="dev")
 SECRET_KEY=config('SECRET_KEY')
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG=config('DEBUG', default=False, cast=bool)
 
 # Quick-start development settings - unsuitable for production
@@ -52,8 +51,10 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-# Application definition
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Application definition
+DEBUG = True
 INSTALLED_APPS = [
     'bootstrap4',
     'instagram.apps.InstagramConfig',
