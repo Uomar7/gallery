@@ -26,6 +26,7 @@ class Location(models.Model):
         self.delete()
 
 class Image(models.Model):
+    image_url = models.ImageField(upload_to = 'images', default='gallery/media/images')
     posted_by = models.CharField(max_length = 40)
     description = models.TextField()
     posted = models.DateTimeField(auto_now_add=True)
