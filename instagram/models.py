@@ -22,3 +22,6 @@ class Location(models.Model):
     location_name = models.CharField(max_length = 40)
     image = models.ForeignKey(Image)
     category = models.ManyToManyField(category)
+
+    def __str__(self):
+        return self.location_name
