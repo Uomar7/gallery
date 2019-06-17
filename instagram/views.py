@@ -37,8 +37,7 @@ def search_results(request):
         for i in term_cat:
             if i.name == search_term:            
                 searched_images = Image.search_by_category(i.id)
-                print('hey----------')
-                print(searched_images)
+                
         message = f"{search_term}"
 
         return render(request, 'all-out/search.html', {"message":message, "images":searched_images})
