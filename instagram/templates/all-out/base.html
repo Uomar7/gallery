@@ -15,17 +15,18 @@
     {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/basehome.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px|Teko&display=swap" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
     {% include "navbar.html" %}
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family: 'Slabo 27px', serif;" >
         
         {% block content %}
         <h1 class="text-center">Images for {{date|date:"l d-F Y"}}</h1>
         {% endblock %}
-        
+
     </div>
 
     {% block scripts %}

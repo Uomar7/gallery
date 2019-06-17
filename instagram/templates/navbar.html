@@ -8,7 +8,7 @@
 <body>
    <!--Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'home' %}">Royal Gram</a>
+  <a class="navbar-brand" style="font-family: 'Slabo 27px', serif;" href="{% url 'home' %}">kin<span style="color:crimson;font-family: 'Slabo 27px', serif;">G</span>ram</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,10 +16,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" style="font-family: 'Slabo 27px', serif;" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'today' %}">Recent</a>
+        <a class="nav-link" style="font-family: 'Slabo 27px', serif;" href="{% url 'today' %}">Recent</a>
       </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,9 +35,9 @@
     </ul>
     <form class="navbar-form" role="search" action="{% url 'search_results'%}">
       <div class="input-group">
-        <input class="form-control mr-sm-2" placeholder="Search Image" name="image">
+        <input class="form-control mr-sm-2" style="font-family: 'Slabo 27px', serif;" placeholder="Search Image" name="image">
         <div class="input-group-btn">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search<i class="glyphicon glyphicon-search"></i></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" style="font-family: 'Slabo 27px', serif;" type="submit">Search<i class="glyphicon glyphicon-search"></i></button>
       </div>
       </div>
     </form>
