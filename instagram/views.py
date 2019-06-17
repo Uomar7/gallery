@@ -27,3 +27,16 @@ def past_images(request,past_date):
     
     images = Image.days_images(date)
     return render(request, 'all-out/past-pics.html', {"date":date, "images":images})
+
+def search_results(request):
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = Image.search_by_category(search_term) or search_by_location(search_term) or search_by_posted(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-out/search.html', {"message":message, "images":searched_images})
+
+    else:
+        message = "You Haven't Searched For Any Term"
+
+        return render(request, 'all-out/search.html', {"message":message})
