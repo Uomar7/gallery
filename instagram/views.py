@@ -9,7 +9,8 @@ def all_images(request):
 
 def images_of_the_day(request):
     date = dt.date.today()
-    return render(request, 'all-out/today-pics.html', {"date":date})
+    images = Image.todays_images()
+    return render(request, 'all-out/today-pics.html', {"date":date, "images": images})
 
 def past_images(request,past_date):
     try:
@@ -23,5 +24,6 @@ def past_images(request,past_date):
 
     if date == dt.date.today():
         return redirect(images_of_the_day)
-
-    return render(request, 'all-out/past-pics.html', {"date":date})
+    
+    images = Image.days_images(date)
+    return render(request, 'all-out/past-pics.html', {"date":date, "images":images})
