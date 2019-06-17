@@ -3,7 +3,6 @@ from django.db import models
 class Image(models.Model):
     name = models.CharField(max_length = 40)
     description = models.TextField()
-    email = models.EmailField()
     posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
