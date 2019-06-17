@@ -1,5 +1,15 @@
 {% extends 'all-out/base.html' %}
 {% block content %}
 
+{% for image in images %}
+<div class="row">
+    <div class="col-md-3">
+        <h3>Posted by: {{image.posted_by}} </h3>
+        <p>{{ image.description }}</p>
+    </div>
+</div>
 
+{% empty %}
+<h3 class="text-light" style="text-align: center" >There no Images Yet!</h3>
+{% endfor %}
 {% endblock %}
