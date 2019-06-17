@@ -4,7 +4,7 @@
 <div class="container">
 
   <div class="row">
-    {% if articles%}
+    {% if images%}
       <h2>Found {{ images|length }} of searched term {{message}}</h2>
     {% else %}
       <h2> Found 0 articles for the search term {{message}}</h2>
@@ -14,11 +14,15 @@
 
   <div class="row">
 
-  {% if articles %}
+  {% if images %}
     {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{image.location}}</h1>
-      </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="img-thumbnail" src="{{ image.image_url.url}}" alt="Card image cap">
+            </div>
+        </div>
+    </div>
     {% endfor %}
   {% endif %}
   </div>

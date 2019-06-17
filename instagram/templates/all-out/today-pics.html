@@ -1,5 +1,16 @@
 {% extends 'all-out/base.html' %}
 
 {% block content %}
-{{block.super}}
+<div class="row">
+    {% for image in images %}
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img class="img-thumbnail" src="{{ image.image_url.url}}" alt="{{image.posted_by}}">
+        </div>
+    </div>
+    {% empty %}
+        <h3 class="text-dark" style="text-align: center" >There no Images Yet!</h3>
+    {% endfor %}
+</div>
+
 {% endblock %}
