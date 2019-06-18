@@ -37,7 +37,7 @@ Access the app files on my [github](https://github.com/Uomar7/gallery.git)
 * Create a virtual environment via `python3 -m venv --without-pip virtual`
 * Activate the virtual environment `source virtual/bin/activate`.
 * Install pip via command `curl https://bootstrap.pypa.io/get-pip.py | python`
-* Install django `pip intall ` on your project folder.
+* Install django `pip install django==1.1.8` on your project folder.
 * Then can download all the requirements via command `pip install -r requirements.txt`
 * Then can make adjustments and run the app by running `python manage.py runserver` command on your terminal.
 
