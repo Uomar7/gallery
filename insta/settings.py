@@ -12,9 +12,11 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config, Csv
+
 MODE = config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
+# print(DEBUG)
 # development
 if config('MODE') == "dev":
    DATABASES = {
@@ -39,8 +41,8 @@ else:
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -51,7 +53,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECRET_KEY = 'ifz9jv-9wnk%z)rz+o947&o5c*u!l04aw#7byq9xm2ar)5lqp$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 # ALLOWED_HOSTS = []
 
@@ -110,14 +112,14 @@ WSGI_APPLICATION = 'insta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'gallery2',
-#         'USER': 'karangu',
-#         'PASSWORD': 'lmzongolo8754'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gallery',
+        'USER': 'king',
+        'PASSWORD': 'Uomarearlie1995'
+    }
+}
 
 
 # Password validation
