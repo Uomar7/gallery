@@ -42,7 +42,7 @@ if config('MODE') == "dev":
 else:
     DATABASES = {
         'default': dj_database_url.config(
-            default=config('DATABASE_URL')
+            default='postgres://king:Uomarearlie1995@localhost/gallery'
         )
     }
 
@@ -54,7 +54,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Application definition
-DEBUG = True
+# DEBUG = True
 INSTALLED_APPS = [
     'bootstrap4',
     'instagram.apps.InstagramConfig',
@@ -103,14 +103,14 @@ WSGI_APPLICATION = 'insta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gallery',
-        'USER': 'king',
-        'PASSWORD': 'Uomarearlie1995'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'gallery',
+#         'USER': 'king',
+#         'PASSWORD': 'Uomarearlie1995'
+#     }
+# }
 
 
 # Password validation
